@@ -1,15 +1,12 @@
 <template>
-  <div class="container">
-    <h1>Please login to acess the 'user' page</h1>
+  <div class="container">    
     <div v-if="!$store.state.authUser">
-      <p>Logged out</p>
+      <p><a href="/auth/facebook">Log in with Facebook</a></p>
     </div>
     <div v-else>
-      <p>Logged in</p>
+      <p><a href="/logout">Log out</a></p>
     </div>
-    <p>
-      <nuxt-link to="/user">User</nuxt-link>
-    </p>
+    <h1>Please login to acess the <nuxt-link to="/user">user</nuxt-link> page</h1>
   </div>
 </template>
 
