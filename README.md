@@ -1,3 +1,3 @@
-# Authenticated Routes with Nuxt.js
+# nuxt-passport-facebook-authentication
 
-https://nuxtjs.org/examples/auth-routes
+A merging of https://nuxtjs.org/examples/auth-routes and http://passportjs.org/docs
