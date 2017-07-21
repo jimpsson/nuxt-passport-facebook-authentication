@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Please login to see the secret content</h1>
+    <h1>Please login to acess the 'user' page</h1>
     <div v-if="!$store.state.authUser">
       <p>Logged out</p>
     </div>
@@ -15,22 +15,11 @@
 
 <script>
   export default {
-    data() {
-      return {
-        formError: null,
-        formUsername: '',
-        formPassword: ''
-      }
-    }
   }
 </script>
 
 <style>
-  .container {
-    padding: 100px;
-  }
-  
-  .error {
-    color: red;
-  }
+.container {
+  padding: 100px;
+}
 </style>

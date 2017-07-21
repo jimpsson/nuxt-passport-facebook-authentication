@@ -21,11 +21,10 @@ passport.use(new FacebookStrategy({
       'name': 'tom',
       'id': profile.id
     };
-    // You can perform any necessary actions with your user at this point,
-    // e.g. internal verification against a users table,
-    // creating new user entries, etc.
 
-    return done(null, user); // the user object we just made gets passed to the route's controller as `req.user`
+    // Verify or create a user in the database here
+    // The user object we are about to return gets passed to the route's controller as `req.user`
+    return done(null, user); 
   }
 ));
 
@@ -43,18 +42,15 @@ passport.serializeUser(function (user, done) {
   done(null, user);
 });
 
-passport.deserializeUser(function (id, done) {
-  /* User.findById(id, function(err, user) {
-    done(err, user);
-  }); */
-  console.log("Deserializing: " + id);
-  //var user = {'id': id};
-  done(null, id);
+passport.deserializeUser(function (user, done) {
+  // You can verify user info with the database if you need to here
+  done(null, user);
 });
 
 server.get('/auth/facebook', passport.authenticate('facebook'));
 
 server.get('/auth/facebook/callback', passport.authenticate('facebook', {
+  failureRedirect: '/',
   successRedirect: '/',
   failureFlash: true
 }));
